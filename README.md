@@ -55,7 +55,8 @@ The WINO framework was rigorously validated on a variety of hyperelasticity conf
 
 ---
 
-💻 Code and Data Availability
+## 💻 Code and Data Availability
+
 The source code and the datasets used in our numerical experiments are currently under preparation. They will be officially released and made fully available in this repository immediately upon the acceptance of the paper.
 
 Stay tuned for updates!
