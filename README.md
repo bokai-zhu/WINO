@@ -47,13 +47,16 @@ By injecting WINO's discrete output fields as the initial Newton iterate $U^{(0)
 
 The WINO framework was rigorously validated on a variety of hyperelasticity configurations using the compressible Neo-Hookean constitutive model.
 
-* **Pure Dirichlet:**
 * Elliptical shape domains.
 * Random shape domains (generated via sums of Gaussian functions).
-
-
-* **Mixed Dirichlet & Neumann:**
 * Square plate with an embedded elliptic hole.
 * Shear-dominated Cook's membrane.
 * Quarter pressure vessel under internal follower forces.
+
+---
+
+💻 Code and Data Availability
+The source code and the datasets used in our numerical experiments are currently under preparation. They will be officially released and made fully available in this repository immediately upon the acceptance of the paper.
+
+Stay tuned for updates!
 
