@@ -61,3 +61,14 @@ The source code and the datasets used in our numerical experiments are currently
 
 Stay tuned for updates!
 
+## 📖 Citation
+
+If you find this work useful in your research, please consider citing:
+
+```bibtex
+@article{zhu6816120wino,
+  title={WINO: A Weak-Form Physics Informed Neural Operator for Hyperelasticity on Variable Domains},
+  author={Zhu, Bokai and Zhang, Qinghui and Rabczuk, Timon},
+  journal={Available at SSRN 6816120}
+}
+
