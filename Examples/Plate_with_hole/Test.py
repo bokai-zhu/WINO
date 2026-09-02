@@ -117,7 +117,7 @@ model_data["path_test"] = os.path.join(model_data["dir"],
                                   'Hyperelasticity_Hole_G_u_s' + str(model_data["grid_point_num"])
                                   + '_n' + str(model_data["n_test"]) + '_test.npz')
 # Build a distinctive filename from the config
-model_data["model_filename"] = "RVINO_Gh0.01_hyperelasticity_hole_s{}_n{}_ep{}.pth".format(
+model_data["model_filename"] = "WINO_hyperelasticity_hole_s{}_n{}_ep{}.pth".format(
     model_data["grid_point_num"],
     model_data["n_data"],
     model_data["num_epoch"]
