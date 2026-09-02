@@ -1,0 +1,12 @@
+# Pip packages for WINO (Python >= 3.10; tested on 3.13.5).
+# Install PyTorch for your CUDA/CPU platform first, e.g.
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+#
+# FEniCSx (dolfinx 0.8, ufl 2024.1, petsc4py 3.21, mpi4py) should be
+# installed from conda-forge, then: pip install multiphenicsx
+
+numpy>=1.24
+torch>=2.1
+matplotlib>=3.7
+scipy>=1.10
+transformers>=4.30
