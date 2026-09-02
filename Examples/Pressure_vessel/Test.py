@@ -114,7 +114,7 @@ else:
     model_data["path_test"] = os.path.join(model_data["dir"],
                                   'Hyperelasticity_Vessel_PhiEdxEdyG_u_s' + str(model_data["sensor_point_num_test"])
                                   + '_n' + str(model_data["n_test"]) + '_test.npz')
-model_data["model_filename"] = "FNO_Grad_hyperelasticityVessel_s{}_n{}_ep{}.pth".format(
+model_data["model_filename"] = "WINO_hyperelasticityVessel_s{}_n{}_ep{}.pth".format(
     model_data["grid_point_num"],
     model_data["n_data"],
     model_data["num_epoch"]
