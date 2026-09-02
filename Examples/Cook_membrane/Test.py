@@ -108,7 +108,7 @@ model_data["path_train"] = os.path.join(model_data["dir"],
 model_data["path_test"] = os.path.join(model_data["dir"],
                                   'Hyperelasticity_Trapezoid_G_u_s' + str(model_data["grid_point_num_test"])
                                   + '_n' + str(model_data["n_test"]) + '_test.npz')
-model_data["model_filename"] = "FNO_Grad_hyperelasticityTrapezoid_y{}x{}_n{}_ep{}.pth".format(
+model_data["model_filename"] = "WINO_hyperelasticityTrapezoid_y{}x{}_n{}_ep{}.pth".format(
     model_data["grid_point_y"],
     model_data["grid_point_x"],
     model_data["n_data"],
