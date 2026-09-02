@@ -25,24 +25,6 @@ The core of WINO is built upon a Fourier Neural Operator (FNO) architecture. It 
 * **Dirichlet Problems:** For pure Dirichlet conditions, WINO adopts a lifting strategy where the network predicts a homogeneous displacement component $w_h$ from the level-set field $\varphi_h$, boundary data $g_h$, and body force $f_h$. The discrete displacement is recovered via $u_h=\varphi_hw_h+g_h$.
 * **Neumann Problems:** For traction-driven Neumann settings, the identical operator backbone maps the level-set description $\varphi_h$, nominal loads $t_h$, and body forces $f_h$ to the displacement $u_h$. Additionally, it predicts the auxiliary variables ($y_h, p_h$) required to close the weak formulation on cut cells.
 
-### Loss Function Formulation
-
-WINO avoids the instability of high-order strong-form derivatives by employing an integration-based approach:
-
-* **Momentum Residual:** Evaluated using weak-form integrals over the unchanged rectangular mesh via Gaussian quadrature.
-* **Auxiliary Constraints:** Imposed via squared strong-form residuals on intersected elements.
-* **Total Loss:** Training is governed by minimizing the sum of these components: $\mathcal{L}_{total}=\mathcal{L}_{weak}+\mathcal{L}_{sq}$.
-
----
-
-## 🚀 Neural Operator Warm Starts (NOWS)
-
-Solving hyperelastic PDEs often demands computationally expensive Newton-Krylov iterations. WINO alleviates this by providing a highly accurate starting guess in a matter of milliseconds.
-
-By injecting WINO's discrete output fields as the initial Newton iterate $U^{(0)}$, the NOWS framework dramatically decreases the required outer Newton iterations and inner Krylov (e.g., GMRES or CG) steps. Crucially, this requires zero modifications to the underlying finite element discretization or the iterative algorithms themselves.
-
----
-
 ## 📊 Benchmarks
 
 The WINO framework was rigorously validated on a variety of hyperelasticity configurations using the compressible Neo-Hookean constitutive model.
@@ -55,11 +37,54 @@ The WINO framework was rigorously validated on a variety of hyperelasticity conf
 
 ---
 
-## 💻 Code and Data Availability
+## 💻 Getting Started
 
-The source code and the datasets used in our numerical experiments are currently under preparation. They will be officially released and made fully available in this repository immediately upon the acceptance of the paper.
+### Requirements
 
-Stay tuned for updates!
+```bash
+pip install -r requirements.txt
+```
+
+For data generation, also install DOLFINx 0.8 (`conda-forge`) and `multiphenicsx`.
+
+### Generate data first if `WINO/data/` is empty
+
+Training still reads geometry/load samples from `WINO/data/*.npz`. If that folder is missing or empty, **run the matching `Phi_FEM/generate_data_*.py` before any example script**. These solvers write train/test npz files into `WINO/data/`.
+
+| Case | Data generator | Default grid / split |
+| --- | --- | --- |
+| Arbitrary shapes | `Phi_FEM/generate_data_Arbit.py` | 64, 500 train + 100 test |
+| Elliptical domains | `Phi_FEM/generate_data_ellip.py` | 64, 500 train + 100 test |
+| Plate with hole | `Phi_FEM/generate_data_Hole.py` | 64, 300 train + 100 test |
+| Cook's membrane | `Phi_FEM/generate_data_Trapezoid.py` | 51, 1000 train + 100 test |
+| Pressure vessel | `Phi_FEM/generate_data_Vessel.py` | 51 (Q9 101), 1000 train + 100 test |
+
+Example:
+
+```bash
+python Phi_FEM/generate_data_Arbit.py
+```
+
+### Main program
+
+The main WINO training script for each benchmark is **`Examples/<case>/WINO.py`** (physics-informed / data-free residual training on the $\varphi$-FEM weak form).
+
+```bash
+python Examples/Arbit_shape/WINO.py
+```
+
+Checkpoints, figures, and logs are written under the same case folder: `model/`, `pictures/`, and `result/`. Data stay in `WINO/data/`.
+
+| Script | Purpose |
+| --- | --- |
+| `WINO.py` | **Main program**: physics-informed WINO training |
+| `WINO_Data.py` | data-driven WINO variant |
+| `Phi_FEM_FNO.py` | supervised FNO baseline (Phi-FEM labels) |
+| `WINO_Gh.py` | plate-with-hole variant with extra ghost-penalty terms |
+| `NOWS.py` | Neural Operator Warm Starts for $\varphi$-FEM |
+| `Test.py` | load a trained model and report errors / plots |
+
+Other cases follow the same layout (`Elliptical_shape`, `Plate_with_hole`, `Cook_membrane`, `Pressure_vessel`).
 
 ## 📖 Citation
 
@@ -71,4 +96,6 @@ If you find this work useful in your research, please consider citing:
   author={Zhu, Bokai and Zhang, Qinghui and Rabczuk, Timon},
   journal={Available at SSRN 6816120}
 }
+```
+
 
