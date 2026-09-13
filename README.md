@@ -91,10 +91,16 @@ Other cases follow the same layout (`Elliptical_shape`, `Plate_with_hole`, `Cook
 If you find this work useful in your research, please consider citing:
 
 ```bibtex
-@article{zhu6816120wino,
-  title={WINO: A Weak-Form Physics Informed Neural Operator for Hyperelasticity on Variable Domains},
-  author={Zhu, Bokai and Zhang, Qinghui and Rabczuk, Timon},
-  journal={Available at SSRN 6816120}
+@article{ZHU2027119356,
+  title = {WINO: A weak-form physics informed neural operator for hyperelasticity on variable domains},
+  journal = {Computer Methods in Applied Mechanics and Engineering},
+  volume = {463},
+  pages = {119356},
+  year = {2027},
+  issn = {0045-7825},
+  doi = {https://doi.org/10.1016/j.cma.2026.119356},
+  url = {https://www.sciencedirect.com/science/article/pii/S0045782526006298},
+  author = {Bokai Zhu and Yizheng Wang and Qinghui Zhang and Timon Rabczuk}
 }
 ```
 
