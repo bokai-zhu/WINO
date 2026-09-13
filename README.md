@@ -2,7 +2,7 @@
 
 This repository accompanies the paper, published in Computer Methods in Applied Mechanics and Engineering:
 
-**[WINO: A Weak-Form Physics Informed Neural Operator for Hyperelasticity on Variable Domains]([https://arxiv.org/abs/2605.24651](https://www.sciencedirect.com/science/article/pii/S0045782526006298))**
+**[WINO: A Weak-Form Physics Informed Neural Operator for Hyperelasticity on Variable Domains](https://www.sciencedirect.com/science/article/pii/S0045782526006298)**
 
 ---
 
